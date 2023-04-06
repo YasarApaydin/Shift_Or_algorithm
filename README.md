@@ -27,3 +27,36 @@ Main Features
 3. Preprocessing step in O(m + sigma) time and space complexity;
 O(n) time complexity search phase (independent of alphabet size and pattern length);
 4. easily adapts to approximate sequence matching.
+
+
+
+
+ Example of a shift operation implemented in Java:
+public class Main {
+    public static void main(String[] args) {
+        int[] arr = {1, 2, 3, 4, 5};
+        int k = 2; // number of positions to shift to the right
+
+// shift operation using a loop
+        for (int i = 0; i < k; i++) {//How many times the elements in the array will be shifted
+            int last = arr[arr.length - 1];
+            for (int j = arr.length - 1; j > 0; j--) {
+                arr[j] = arr[j - 1];//Shift the Elelamns one position to the right
+            arr[0] = last;
+        }
+
+// print the shifted array
+        for (int num : arr) {
+            System.out.print(num + " ");
+        }
+
+    }
+}
+
+In this example, we have an array of integers arr that we want to shift to the right by k positions. We first implement the shift operation using a loop that moves each element one position to the right, starting from the end of the array and moving towards the beginning. We repeat this process k times to shift the array by k positions to the right.
+
+After performing the shift operation, we print out the shifted array using a for-each loop.
+
+Note that this implementation of the shift operation has a time complexity of O(n*k), where n is the length of the array and k is the number of positions to shift. This is because we perform a loop that moves each element one position to the right, and we repeat this process k times. However, this can be improved by implementing the shift operation using a more efficient algorithm, such as reversing the array twice.
+
+
